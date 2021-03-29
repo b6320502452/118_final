@@ -2,6 +2,8 @@
 int founddi(int n)
 {
     int di;
+    if(n==0)
+        return 1;
     for(di=0;n!=0;di++,n/=10);
     return di;
 }
@@ -19,15 +21,18 @@ int main()
     int n,k,com=0,dik,i;
     scanf("%d %d",&n,&k);
     dik=founddi(k);
-
     for(i=0;i<dik;i++)
     {
         com+=(n%10)*mypow(10,i);
         n/=10;
     }
-    if(k>=com)
+    if(k>com)
     {
         printf("%d%d",n,k);
+    }
+    else if(k==0)
+    {
+        printf("%d%d",n+1,k);
     }
     else
     {
