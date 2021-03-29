@@ -4,12 +4,12 @@ int main()
     int n,i;
     scanf("%d",&n);
     int like[n];
-    for(i=0;i<n;i++)
+    for(i=0; i<n; i++)
     {
         scanf("%d",&like[i]);
     }
     int max=like[0],location=1,count=0;
-    for(i=0;i<n;i++)
+    for(i=0; i<n; i++)
     {
         if(like[i]>max)
         {
@@ -17,7 +17,7 @@ int main()
             location=i+1;
         }
     }
-    for(i=0;i<n;i++)
+    for(i=0; i<n; i++)
     {
         if(like[i]==max)
         {
@@ -30,6 +30,13 @@ int main()
     }
     else
     {
-        printf("%d",count);
+        for(i=0; i<n; i++)
+        {
+            if(like[i]==max)
+            {
+                printf("%d ",i+1);
+            }
+        }
+        printf("%d",max);
     }
 }
