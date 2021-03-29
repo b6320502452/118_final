@@ -1,42 +1,32 @@
 #include<stdio.h>
 int main()
 {
-    int n,i;
+    int n,i,j,ck=0;
     scanf("%d",&n);
-    int like[n];
+    int coment[n],count[n],top=0;
     for(i=0; i<n; i++)
     {
-        scanf("%d",&like[i]);
+        scanf("%d",&coment[i]);
     }
-    int max=like[0],location=1,count=0;
+    count[0]=-1;
     for(i=0; i<n; i++)
     {
-        if(like[i]>max)
+        ck=0;
+        for(j=0+i;j<n;j++)
         {
-            max=like[i];
-            location=i+1;
-        }
-    }
-    for(i=0; i<n; i++)
-    {
-        if(like[i]==max)
-        {
-            count++;
-        }
-    }
-    if(count==1)
-    {
-        printf("%d",location);
-    }
-    else
-    {
-        for(i=0; i<n; i++)
-        {
-            if(like[i]==max)
+            if(coment[i]==count[j])
             {
-                printf("%d ",i+1);
+                ck=1;
             }
         }
-        printf("%d",max);
+        if(ck==1)
+            continue;
+        count[top]=coment[i];
+        top++;
+    }
+    printf("%d",top);
+    for(i=0; i<n; i++)
+    {
+
     }
 }
